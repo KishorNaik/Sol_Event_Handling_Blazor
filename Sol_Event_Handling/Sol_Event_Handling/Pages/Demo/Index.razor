@@ -1,0 +1,24 @@
+﻿@page "/ondemo/eventview"
+@code {
+
+    private string Message { get; set; }
+
+    private void OnButton(MouseEventArgs e,int buttonNumber)
+    {
+        Message=$"You selected Button #{buttonNumber} at mouse position: {e.ClientX} X {e.ClientY}.";
+    }
+
+}
+
+<h2>@Message</h2>
+
+@for (int i = 0; i < 5; i++)
+{
+    var buttonNumber = i;
+
+    <button class="btn btn-danger" @onclick="@((e)=> OnButton(e,buttonNumber))">
+        Button @buttonNumber
+    </button>
+}
+
+
