@@ -1,18 +1,4 @@
 ﻿@page "/ondemo/eventview"
-@code {
-
-    private string Message { get; set; }
-
-    private void OnButton(MouseEventArgs e, int buttonNumber)
-    {
-        Message = $"You selected Button #{buttonNumber} at mouse position: {e.ClientX} X {e.ClientY}.";
-    }
-
-    private async Task UpdateMessage()
-    {
-        Message = "Method Event";
-    }
-}
 
 <h2>@Message</h2>
 
@@ -28,7 +14,6 @@
                     Button @buttonNumber
                 </button>
             }
-
         </div>
     </div>
     <div class="row">
@@ -41,8 +26,9 @@
             <button class="btn btn-danger" @onclick="UpdateMessage">Method Event</button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-danger" @onclick="this.OnSubmit">Action Event</button>
+        </div>
+    </div>
 </div>
-
-
-
-
